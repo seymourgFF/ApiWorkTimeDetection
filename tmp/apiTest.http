@@ -1,0 +1,18 @@
+#Токен прошел
+GET http://127.0.0.1:8000/api/work/start/1
+Accept: application/json
+Authorization: Bearer 1234567890qwertyuiop
+###
+GET http://127.0.0.1:8000/api/work/stop/1
+Accept: application/json
+Authorization: Bearer 1234567890qwertyuiop
+###
+#Токен не прошел
+GET http://127.0.0.1:8000/api/work/start/1
+Accept: application/json
+Authorization: Bearer 1234567890qwertyuiop1
+###
+GET http://127.0.0.1:8000/api/work/stop/1
+Accept: application/json
+Authorization: Bearer 1234567890qwertyuiop1
+###

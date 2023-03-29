@@ -20,11 +20,13 @@ Route::get('/', function () {
 Route::group(['prefix' => 'workers'], function () {
 
     Route::group(['middleware'=>['auth', 'verified']], function () {
-        Route::get('/upload', [\App\Http\Controllers\MainController::class ,'upload'])->name('upload');
+        Route::get('/timer', [\App\Http\Controllers\PageController::class ,'timer'])->name('timer');
+        Route::get('/upload', [\App\Http\Controllers\PageController::class ,'uploadWorker'])->name('upload');
+        Route::post('/store', [\App\Http\Controllers\PageController::class ,'storeWorker'])->name('store');
     });
-    Route::get('/', [\App\Http\Controllers\MainController::class ,'main'])->name('main');
-    Route::get('/{id}', [\App\Http\Controllers\MainController::class ,'show'])->name('show');
-    Route::post('/store', [\App\Http\Controllers\MainController::class ,'store'])->name('store');
+    Route::get('/', [\App\Http\Controllers\PageController::class ,'indexWorker'])->name('main');
+    Route::match(['post', 'get'],'/{id}', [\App\Http\Controllers\PageController::class ,'showWorker'])->name('show');
+
 });
 
 Auth::routes();

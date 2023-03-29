@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('workers_id')->constrained()->onDelete('cascade');
             $table->date('date');
-            $table->time('start_time');
-            $table->time('end_time')->nullable();
-            $table->integer('break_minutes')->default(0);
+            //$table->time('start_time');
+            $table->dateTime('start_time');
+            //$table->time('end_time')->nullable();
+            $table->dateTime('end_time')->nullable();
             $table->timestamps();
         });
     }

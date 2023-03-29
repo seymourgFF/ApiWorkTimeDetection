@@ -24,7 +24,8 @@
 
         <div class="mt-3 row justify-content-center">
             <div class="col-md-7">
-                <form method="GET">
+                <form method="POST" action="{{route('show',$worker->id)}}">
+                    @csrf
                     <div class="input-daterange input-group date">
                         <input value="{{$dates}}" type="text" name="dates" class="form-control">
                         <div class="input-group-addon">

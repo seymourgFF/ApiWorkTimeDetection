@@ -1,0 +1,96 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Api-work-time-detection documentation",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000",
+            "description": "Localhost"
+        }
+    ],
+    "paths": {
+        "/api/work/start/{id}": {
+            "get": {
+                "tags": [
+                    "Workers"
+                ],
+                "summary": "Start worker timer api ",
+                "operationId": "startWorkApi",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Timer start"
+                    },
+                    "400": {
+                        "description": "Worker not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/work/stop/{id}": {
+            "get": {
+                "tags": [
+                    "Workers"
+                ],
+                "summary": "Stop worker timer api ",
+                "operationId": "stopWorkApi",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Timer stop"
+                    },
+                    "400": {
+                        "description": "nothing to stop"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Workers",
+            "description": ""
+        }
+    ]
+}

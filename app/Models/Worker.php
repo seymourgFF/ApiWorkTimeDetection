@@ -10,4 +10,9 @@ class Worker extends Model
     use HasFactory;
     protected $table = 'workers';
     protected $guarded = false;
+
+    protected static function newFactory()
+    {
+        return \Database\Factories\WorkerFactory::new();
+    }
 }

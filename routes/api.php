@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/work/{id}/start', [WorkLogController::class, 'start']);
-Route::get('/work/{id}/stop', [WorkLogController::class, 'stop']);
+Route::middleware('authApi')->get('/work/start/{id}', [WorkLogController::class, 'start'])->name('startApi');
+Route::middleware('authApi')->get('/work/stop/{id}', [WorkLogController::class, 'stop'])->name('stopApi');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
